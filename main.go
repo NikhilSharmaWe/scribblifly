@@ -44,5 +44,16 @@ func main() {
 		scriptModel:  &scriptStorage,
 	}
 
-	fmt.Println(app)
+	acc := storage.Account{
+		Username:  "nikhilsharmawe",
+		FirstName: "Nikhil",
+		LastName:  "Sharma",
+	}
+
+	// try inserting some data in the databases
+	if err := app.accountModel.Create(acc); err != nil {
+		errLog.Fatal(err)
+	}
+
+	fmt.Println("Finished")
 }
